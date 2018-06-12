@@ -1,22 +1,32 @@
-'use-strict';
+const bash = require('./bashcmd');
 
-const commands = {
-  exit: () => process.exit(),
-  pwd: () => {
-    process.stdout.write(process.cwd());
-  },
-};
-
-process.stdout.write('prompt > ');
+process.stdout.write('\nprompt > ');
 
 process.stdin.on('data', data => {
-  const cmd = data.toString().trim();
+  const cmd = data
+    .toString()
+    .trim()
+    .split(' ');
 
-  try {
-    commands[cmd]();
-  } catch (err) {
-    process.stdout.write(`You typed: ${cmd}, but that doesn't mean anything.`);
+  switch (cmd[0]) {
+    case 'pwd':
+      bash.pwd();
+      break;
+
+    case 'ls':
+      bash.ls();
+      break;
+
+    case 'curl':
+      bash.curl(cmd[1]);
+      break;
+
+    case 'cat':
+      if (cmd[1]) bash.cat(cmd[1]);
+      break;
+
+    default:
+      process.stdout.write(`${cmd[0]} is not a valid command.`);
+      process.stdout.write('\nprompt > ');
   }
-
-  process.stdout.write('\nprompt > ');
 });

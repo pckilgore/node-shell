@@ -1,0 +1,9 @@
+** Message: 13:35:31.223: libsession.vala:50: DESKTOP_AUTOSTART_ID not set, session registration may be broken (not running budgie-desktop?)
+
+** (budgie-panel:21994): WARNING **: 13:35:31.306: BudgieMenuWindow.vala:298: Software has no parent directory, not adding to menu
+
+
+(budgie-panel:21994): GLib-GIO-CRITICAL **: 14:09:57.328: g_app_info_get_icon: assertion 'G_IS_APP_INFO (appinfo)' failed
+
+** (budgie-panel:21994): WARNING **: 14:13:18.264: BudgieMenuWindow.vala:298: Software has no parent directory, not adding to menu
+
